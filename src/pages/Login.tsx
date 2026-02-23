@@ -54,7 +54,9 @@ const Login = () => {
                 </button>
               </div>
             </div>
-            <Button variant="gold" className="w-full" type="submit">Sign In</Button>
+            <Button variant="gold" className="w-full" type="submit">
+              <Link to="/home">Sign In</Link>
+            </Button>
           </form>
 
           <p className="mt-6 text-center text-sm text-muted-foreground">
