@@ -16,6 +16,7 @@ import AdminUsers from "./pages/admin/AdminUsers";
 import AdminTeachers from "./pages/admin/AdminTeachers";
 import AdminSkills from "./pages/admin/AdminSkills";
 import AdminBookings from "./pages/admin/AdminBookings";
+import Chat from "./pages/Chat";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/skills" element={<Skills />} />
           <Route path="/mentors" element={<Mentors />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/chat" element={<Chat />} />
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/users" element={<AdminUsers />} />

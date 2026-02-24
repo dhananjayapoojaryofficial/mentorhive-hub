@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Menu, X } from "lucide-react";
+import { BookOpen, Menu, X, MessageSquare } from "lucide-react";
 import { useState } from "react";
 
 const Navbar = () => {
@@ -27,6 +27,10 @@ const Navbar = () => {
           <Link to="/how-it-works" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
             How It Works
           </Link>
+          <Link to="/chat" className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <MessageSquare className="h-4 w-4" />
+            Messages
+          </Link>
           <div className="flex items-center gap-3">
             <Button variant="ghost" size="sm" asChild>
               <Link to="/login">Log in</Link>
@@ -49,6 +53,7 @@ const Navbar = () => {
           <Link to="/skills" className="block text-sm font-medium text-muted-foreground" onClick={() => setOpen(false)}>Browse Skills</Link>
           <Link to="/mentors" className="block text-sm font-medium text-muted-foreground" onClick={() => setOpen(false)}>Find Mentors</Link>
           <Link to="/how-it-works" className="block text-sm font-medium text-muted-foreground" onClick={() => setOpen(false)}>How It Works</Link>
+          <Link to="/chat" className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground" onClick={() => setOpen(false)}><MessageSquare className="h-4 w-4" /> Messages</Link>
           <div className="flex gap-3 pt-2">
             <Button variant="ghost" size="sm" asChild><Link to="/login">Log in</Link></Button>
             <Button variant="gold" size="sm" asChild><Link to="/register">Get Started</Link></Button>
