@@ -11,6 +11,11 @@ import Mentors from "./pages/Mentors";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminUsers from "./pages/admin/AdminUsers";
+import AdminTeachers from "./pages/admin/AdminTeachers";
+import AdminSkills from "./pages/admin/AdminSkills";
+import AdminBookings from "./pages/admin/AdminBookings";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +33,12 @@ const App = () => (
           <Route path="/skills" element={<Skills />} />
           <Route path="/mentors" element={<Mentors />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          {/* Admin Routes */}
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/users" element={<AdminUsers />} />
+          <Route path="/admin/teachers" element={<AdminTeachers />} />
+          <Route path="/admin/skills" element={<AdminSkills />} />
+          <Route path="/admin/bookings" element={<AdminBookings />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

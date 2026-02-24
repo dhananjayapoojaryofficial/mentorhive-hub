@@ -8,7 +8,6 @@ import { BookOpen, Eye, EyeOff, GraduationCap, BookMarked, ShieldCheck } from "l
 const roles = [
   { value: "learner", label: "Learner", icon: GraduationCap, desc: "Find mentors and learn new skills" },
   { value: "teacher", label: "Teacher", icon: BookMarked, desc: "Share your expertise and mentor others" },
-  { value: "admin", label: "Admin", icon: ShieldCheck, desc: "Manage the platform and users" },
 ] as const;
 
 const Register = () => {
