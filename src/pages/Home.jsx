@@ -3,8 +3,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import {
-  // BookOpen,
   Users,
+  User,
   Star,
   Award,
   ArrowRight,
@@ -22,9 +22,7 @@ import {
   Server,
 } from "lucide-react";
 
-/* ───────────────────────────────────────────── */
-/* DATA */
-/* ───────────────────────────────────────────── */
+/* ---------------- DATA ---------------- */
 
 const stats = [
   { value: "10K+", label: "Learners Enrolled" },
@@ -88,20 +86,42 @@ const testimonials = [
   },
 ];
 
-/* ───────────────────────────────────────────── */
-/* COMPONENT */
-/* ───────────────────────────────────────────── */
+/* ---------------- COMPONENT ---------------- */
 
 const Home = () => {
   return (
     <div className="bg-background text-foreground overflow-x-hidden">
+
+<section className="relative mt-16 bg-gradient-to-br from-slate-900 via-slate-950 to-black text-white py-32 overflow-hidden"></section>
       <Navbar />
 
-      {/* HERO */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-slate-950 to-black text-white py-32">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_30%_20%,orange,transparent_40%)]"></div>
+      {/* HERO SECTION */}
+      <section className="relative bg-gradient-to-br from-slate-900 via-slate-950 to-black text-white py-32 overflow-hidden">
+
+        {/* Profile Icon (Inside Hero, Top Right) */}
+        <div className="absolute top-6 right-6 z-20">
+          <Link
+            to="/profile"
+            className="group flex items-center gap-2"
+          >
+            <span className="hidden sm:block text-xs text-white/70 group-hover:text-white transition">
+              My Profile
+            </span>
+
+            <div className="h-12 w-12 rounded-full 
+                      bg-gradient-to-br from-orange-500 to-yellow-400
+                      flex items-center justify-center 
+                      shadow-xl 
+                      ring-2 ring-orange-400/40
+                      group-hover:scale-110 
+                      transition-all duration-300">
+              <User className="h-6 w-6 text-black" />
+            </div>
+          </Link>
+        </div>
 
         <div className="container mx-auto px-6 text-center relative z-10">
+
           <span className="inline-block mb-6 px-4 py-1 text-xs uppercase tracking-widest bg-orange-500/10 text-orange-400 rounded-full border border-orange-500/20">
             #1 Mentor Platform in India
           </span>
@@ -132,8 +152,11 @@ const Home = () => {
             <Button
               asChild
               size="lg"
-              variant="outline"
-              className="border-white/20 text-white hover:bg-white/10"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 
+                   text-white font-semibold 
+                   px-8 py-6 rounded-xl 
+                   shadow-lg hover:scale-105 
+                   transition-all duration-300"
             >
               <Link to="/mentors">Browse Mentors</Link>
             </Button>
@@ -149,8 +172,10 @@ const Home = () => {
               )
             )}
           </div>
+
         </div>
       </section>
+
 
       {/* STATS */}
       <section className="bg-card border-y border-border">
@@ -171,14 +196,21 @@ const Home = () => {
       {/* CATEGORIES */}
       <section className="py-24 text-center">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold mb-6">Explore Categories</h2>
+          <h2 className="text-4xl font-bold mb-10">
+            Explore Categories
+          </h2>
 
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map(({ label, icon: Icon }) => (
               <Link
                 key={label}
                 to="/skills"
-                className="flex items-center gap-2 px-6 py-3 rounded-full border border-border hover:border-orange-500 hover:bg-orange-500/10 transition"
+                className="flex items-center gap-2 px-6 py-3 rounded-full 
+                           border border-border 
+                           hover:border-orange-500 
+                           hover:bg-orange-500/10 
+                           hover:shadow-md
+                           transition-all duration-300"
               >
                 <Icon className="h-4 w-4" />
                 {label}
@@ -191,13 +223,17 @@ const Home = () => {
       {/* FEATURES */}
       <section className="py-24 bg-card">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-12">Why Choose SkillBridge?</h2>
+          <h2 className="text-4xl font-bold mb-12">
+            Why Choose SkillBridge?
+          </h2>
 
           <div className="grid md:grid-cols-4 gap-8">
             {features.map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}
-                className="p-8 rounded-2xl border border-border hover:shadow-xl hover:-translate-y-2 transition duration-300"
+                className="p-8 rounded-2xl border border-border 
+                           hover:shadow-xl hover:-translate-y-2 
+                           transition duration-300"
               >
                 <div className="flex justify-center mb-4">
                   <div className="bg-orange-500/10 p-4 rounded-xl">
@@ -215,13 +251,17 @@ const Home = () => {
       {/* TESTIMONIALS */}
       <section className="py-24">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-12">What Learners Say</h2>
+          <h2 className="text-4xl font-bold mb-12">
+            What Learners Say
+          </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((t) => (
               <div
                 key={t.name}
-                className="p-8 border border-border rounded-2xl hover:shadow-xl transition"
+                className="p-8 border border-border rounded-2xl 
+                           hover:shadow-xl hover:-translate-y-2 
+                           transition duration-300"
               >
                 <div className="flex justify-center mb-4 text-orange-400">
                   {[...Array(5)].map((_, i) => (

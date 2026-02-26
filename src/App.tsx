@@ -17,6 +17,8 @@ import AdminTeachers from "./pages/admin/AdminTeachers";
 import AdminSkills from "./pages/admin/AdminSkills";
 import AdminBookings from "./pages/admin/AdminBookings";
 import Chat from "./pages/Chat";
+import HowItWorks from "./pages/HowItWorks";
+import Profile from "./pages/Profile";
 
 const queryClient = new QueryClient();
 
@@ -28,12 +30,14 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/home" element={<Home />} />
+          <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/mentors" element={<Mentors />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/chat" element={<Chat />} />
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminDashboard />} />

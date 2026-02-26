@@ -8,13 +8,23 @@ import { useState } from "react";
 const mockSkills = [
   { id: "1", title: "Full-Stack Web Development with React & Node", category: "Development", mentor: "Sarah Chen", rating: 4.9, reviews: 128, price: 75, duration: "60 min" },
   { id: "2", title: "UI/UX Design Fundamentals & Prototyping", category: "Design", mentor: "Marcus Johnson", rating: 4.8, reviews: 94, price: 60, duration: "45 min" },
-  { id: "3", title: "Data Science with Python & Machine Learning", category: "Data Science", mentor: "Priya Patel", rating: 4.9, reviews: 215, price: 85, duration: "60 min" },
+  { id: "3", title: "Data Science with Python & Machine Learning", category: "AI/ML", mentor: "Priya Patel", rating: 4.9, reviews: 215, price: 85, duration: "60 min" },
   { id: "4", title: "Digital Marketing Strategy & SEO", category: "Marketing", mentor: "Alex Rivera", rating: 4.7, reviews: 67, price: 50, duration: "45 min" },
   { id: "5", title: "Cloud Architecture with AWS", category: "DevOps", mentor: "James Kim", rating: 4.8, reviews: 156, price: 90, duration: "60 min" },
   { id: "6", title: "Mobile App Development with Flutter", category: "Development", mentor: "Emma Wilson", rating: 4.6, reviews: 42, price: 70, duration: "60 min" },
+  { id: "7", title: "Advanced SQL & Database Design", category: "Data", mentor: "Arjun Mehta", rating: 4.7, reviews: 84, price: 55, duration: "45 min" },
+  { id: "8", title: "NLP with Transformers", category: "AI/ML", mentor: "Leena Gupta", rating: 4.9, reviews: 64, price: 95, duration: "75 min" },
+  { id: "9", title: "Cybersecurity Foundations", category: "Security", mentor: "Rajat Singh", rating: 4.6, reviews: 39, price: 65, duration: "50 min" },
+  { id: "10", title: "Product Management & Roadmapping", category: "Business", mentor: "Nidhi Rao", rating: 4.8, reviews: 102, price: 80, duration: "60 min" },
+  { id: "11", title: "Kubernetes for Developers", category: "DevOps", mentor: "Omar Farooq", rating: 4.7, reviews: 58, price: 85, duration: "60 min" },
+  { id: "12", title: "GraphQL API Design", category: "Development", mentor: "Sana Mirza", rating: 4.6, reviews: 34, price: 60, duration: "45 min" },
+  { id: "13", title: "Rust Systems Programming", category: "Development", mentor: "Vikram Patel", rating: 4.5, reviews: 22, price: 95, duration: "75 min" },
+  { id: "14", title: "Excel for Data Analysis", category: "Business", mentor: "Maya Kapoor", rating: 4.4, reviews: 47, price: 40, duration: "40 min" },
+  { id: "15", title: "Public Speaking & Presentation Skills", category: "Personal Development", mentor: "Rahul Verma", rating: 4.8, reviews: 76, price: 45, duration: "50 min" },
+  { id: "16", title: "Photography: Basics to Pro", category: "Creative", mentor: "Ananya Sen", rating: 4.7, reviews: 29, price: 55, duration: "60 min" },
 ];
 
-const categories = ["All", "Development", "Design", "Data Science", "Marketing", "DevOps"];
+const categories = ["All", "Development", "Design", "AI/ML", "Data", "Marketing", "DevOps", "Security", "Business", "Personal Development", "Creative"];
 
 const Skills = () => {
   const [search, setSearch] = useState("");

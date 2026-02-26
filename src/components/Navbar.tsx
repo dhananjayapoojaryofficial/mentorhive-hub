@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Menu, X, MessageSquare } from "lucide-react";
 import { useState } from "react";
+import { User } from "lucide-react";
+// import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -18,23 +20,25 @@ const Navbar = () => {
 
         {/* Desktop */}
         <div className="hidden items-center gap-6 md:flex">
-          <Link to="/skills" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          <Link to="/skills" className="text-sm font-medium text-muted-foreground hover:text-blue-500 transition-colors">
             Browse Skills
           </Link>
-          <Link to="/mentors" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          <Link to="/mentors" className="text-sm font-medium text-muted-foreground hover:text-blue-500 transition-colors">
             Find Mentors
           </Link>
-          <Link to="/how-it-works" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          <Link to="/how-it-works" className="text-sm font-medium text-muted-foreground hover:text-blue-500 transition-colors">
             How It Works
           </Link>
-          <Link to="/chat" className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          <Link to="/chat" className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-blue-500 transition-colors">
             <MessageSquare className="h-4 w-4" />
             Messages
           </Link>
+          <Button variant="gold" size="sm" asChild>
+            <Link to="/login" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Login
+            </Link>
+          </Button>
           <div className="flex items-center gap-3">
-            <Button variant="ghost" size="sm" asChild>
-              <Link to="/login">Log in</Link>
-            </Button>
             <Button variant="gold" size="sm" asChild>
               <Link to="/register">Get Started</Link>
             </Button>
