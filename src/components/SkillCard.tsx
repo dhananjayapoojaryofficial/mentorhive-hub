@@ -2,6 +2,7 @@ import { Star, Clock, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
+
 interface SkillCardProps {
   id: string;
   title: string;
@@ -40,7 +41,8 @@ const SkillCard = ({ id, title, category, mentor, rating, reviews, price, durati
       <div className="flex items-center justify-between">
         <span className="text-lg font-extrabold text-foreground">${price}</span>
         <Button variant="gold" size="sm" asChild>
-          <Link to={`/skills/${id}`}>Book Now</Link>
+          {/* <Link to={`/skills/${id}`}>Book Now</Link> */}
+          <Link to="/bookings">Book Now</Link>
         </Button>
       </div>
     </div>

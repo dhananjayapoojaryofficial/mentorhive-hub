@@ -92,7 +92,7 @@ const Home = () => {
   return (
     <div className="bg-background text-foreground overflow-x-hidden">
 
-<section className="relative mt-16 bg-gradient-to-br from-slate-900 via-slate-950 to-black text-white py-32 overflow-hidden"></section>
+      <section className="relative mt-16 bg-gradient-to-br from-slate-900 via-slate-950 to-black text-white py-0 overflow-hidden"></section>
       <Navbar />
 
       {/* HERO SECTION */}

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-const mentors = [
+export const mentors = [
   { id: "1", name: "Sarah Chen", title: "Senior Full-Stack Developer", location: "San Francisco, CA", rating: 4.9, reviews: 128, sessions: 342, skills: ["React", "Node.js", "TypeScript"], rate: 75, available: true },
   { id: "2", name: "Marcus Johnson", title: "Lead UX Designer", location: "New York, NY", rating: 4.8, reviews: 94, sessions: 215, skills: ["Figma", "UI Design", "Prototyping"], rate: 60, available: true },
   { id: "3", name: "Priya Patel", title: "Data Science Lead", location: "Seattle, WA", rating: 4.9, reviews: 215, sessions: 480, skills: ["Python", "ML", "TensorFlow"], rate: 85, available: false },

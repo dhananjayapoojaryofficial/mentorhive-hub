@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Skills from "./pages/Skills";
 import Mentors from "./pages/Mentors";
+import MentorProfile from "./mentors/MentorProfile";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
@@ -19,6 +20,7 @@ import AdminBookings from "./pages/admin/AdminBookings";
 import Chat from "./pages/Chat";
 import HowItWorks from "./pages/HowItWorks";
 import Profile from "./pages/Profile";
+import Bookings from "./pages/Bookings";
 
 const queryClient = new QueryClient();
 
@@ -36,8 +38,10 @@ const App = () => (
           <Route path="/register" element={<Register />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/mentors" element={<Mentors />} />
+          <Route path="/mentors/:id" element={<MentorProfile />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/bookings" element={<Bookings />} />
           <Route path="/chat" element={<Chat />} />
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminDashboard />} />
