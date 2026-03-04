@@ -1,21 +1,34 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { BookOpen, Eye, EyeOff, GraduationCap, BookMarked, ShieldCheck } from "lucide-react";
+import { BookOpen, Eye, EyeOff, GraduationCap, BookMarked, AlertCircle, Info } from "lucide-react";
+import { useAuth, UserRole } from "@/context/AuthContext";
+import { toast } from "sonner";
 
 const roles = [
-  { value: "learner", label: "Learner", icon: GraduationCap, desc: "Find mentors and learn new skills" },
-  { value: "teacher", label: "Teacher", icon: BookMarked, desc: "Share your expertise and mentor others" },
+  { value: "learner" as UserRole, label: "Learner", icon: GraduationCap, desc: "Find mentors and learn new skills" },
+  { value: "teacher" as UserRole, label: "Teacher", icon: BookMarked, desc: "Share expertise, pending admin approval" },
 ] as const;
+
+const DASHBOARD_MAP: Record<UserRole, string> = {
+  learner: "/learner/dashboard",
+  teacher: "/teacher/dashboard",
+  admin: "/admin",
+};
 
 const Register = () => {
   const [showPw, setShowPw] = useState(false);
-  const [role, setRole] = useState<string>("learner");
+  const [role, setRole] = useState<UserRole>("learner");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const { register } = useAuth();
+  const navigate = useNavigate();
 
   return (
     <div className="flex min-h-screen">
@@ -46,7 +59,7 @@ const Register = () => {
           <p className="mb-6 text-sm text-muted-foreground">Choose your role and get started</p>
 
           {/* Role selector */}
-          <div className="mb-6 grid grid-cols-3 gap-2">
+          <div className="mb-6 grid grid-cols-2 gap-2">
             {roles.map((r) => (
               <button
                 key={r.value}
@@ -81,10 +94,35 @@ const Register = () => {
                 </button>
               </div>
             </div>
-            <Button variant="gold" className="w-full" type="submit">
-              <Link to="/home">Create Account</Link>
+            <Button variant="gold" className="w-full" type="submit" disabled={loading} onClick={async (e) => {
+              e.preventDefault();
+              setError("");
+              if (!name || !email || !password) { setError("Please fill in all fields."); return; }
+              setLoading(true);
+              const result = await register(name, email, password, role);
+              setLoading(false);
+              if (!result.success) { setError(result.error ?? "Registration failed."); return; }
+              toast.success(role === "teacher"
+                ? "Account created! Your teacher account is pending admin approval."
+                : "Account created! Welcome to SkillBridge.");
+              navigate(DASHBOARD_MAP[role], { replace: true });
+            }}>
+              {loading ? "Creating account..." : "Create Account"}
             </Button>
           </form>
+
+          {error && (
+            <div className="mt-3 flex items-center gap-2 rounded-lg border border-destructive/30 bg-destructive/10 px-3 py-2 text-sm text-destructive">
+              <AlertCircle className="h-4 w-4 shrink-0" />{error}
+            </div>
+          )}
+
+          {role === "teacher" && (
+            <div className="mt-3 flex items-start gap-2 rounded-lg border border-blue-200 bg-blue-50 px-3 py-2 text-xs text-blue-700 dark:border-blue-800 dark:bg-blue-950 dark:text-blue-300">
+              <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+              Teacher accounts require admin approval before you can create sessions.
+            </div>
+          )}
 
           <p className="mt-6 text-center text-sm text-muted-foreground">
             Already have an account?{" "}

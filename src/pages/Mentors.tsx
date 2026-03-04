@@ -58,7 +58,7 @@ const Mentors = () => (
                 </div>
 
                 <div className="mt-4 flex items-center justify-between">
-                  <span className="text-lg font-extrabold text-foreground">${m.rate}<span className="text-sm font-normal text-muted-foreground">/hr</span></span>
+                  <span className="text-lg font-extrabold text-foreground">₹{m.rate}<span className="text-sm font-normal text-muted-foreground">/hr</span></span>
                   <Button variant="gold" size="sm" asChild>
                     <Link to={`/mentors/${m.id}`}>View Profile</Link>
                   </Button>

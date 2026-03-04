@@ -105,7 +105,7 @@ const Home = () => {
             className="group flex items-center gap-2"
           >
             <span className="hidden sm:block text-xs text-white/70 group-hover:text-white transition">
-              My Profile
+              {/* My Profile */}
             </span>
 
             <div className="h-12 w-12 rounded-full 

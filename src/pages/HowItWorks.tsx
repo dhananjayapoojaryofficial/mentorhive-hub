@@ -10,54 +10,54 @@ import {
 } from "lucide-react";
 
 const learnerSteps = [
-  { icon: UserPlus,       title: "Create Your Account",           description: "Sign up and build your learner profile with interests and preferred skill categories." },
-  { icon: Search,         title: "Browse Skills or Find Mentors",  description: "Explore skills or search mentors by category, rating, price, or availability." },
-  { icon: Eye,            title: "View Mentor Profile",            description: "Review experience, ratings, pricing, and available time slots before booking." },
-  { icon: CalendarCheck,  title: "Book a Session",                 description: "Pick a suitable date and time, confirm the session, and proceed to payment." },
-  { icon: CreditCard,     title: "Secure Payment",                 description: "Complete payment via the integrated gateway to confirm your booking." },
-  { icon: Video,          title: "Attend the Session",             description: "Join the session at the scheduled time and learn directly from your mentor." },
-  { icon: Star,           title: "Rate & Review",                  description: "Share feedback after completion to maintain quality standards." },
-  { icon: Award,          title: "Download Certificate",           description: "Receive a digital certificate upon successful completion." },
+  { icon: UserPlus, title: "Create Your Account", description: "Sign up and build your learner profile with interests and preferred skill categories." },
+  { icon: Search, title: "Browse Skills or Find Mentors", description: "Explore skills or search mentors by category, rating, price, or availability." },
+  { icon: Eye, title: "View Mentor Profile", description: "Review experience, ratings, pricing, and available time slots before booking." },
+  { icon: CalendarCheck, title: "Book a Session", description: "Pick a suitable date and time, confirm the session, and proceed to payment." },
+  { icon: CreditCard, title: "Secure Payment", description: "Complete payment via the integrated gateway to confirm your booking." },
+  { icon: Video, title: "Attend the Session", description: "Join the session at the scheduled time and learn directly from your mentor." },
+  { icon: Star, title: "Rate & Review", description: "Share feedback after completion to maintain quality standards." },
+  { icon: Award, title: "Download Certificate", description: "Receive a digital certificate upon successful completion." },
 ];
 
 const mentorSteps = [
-  { icon: Briefcase,   title: "Register as a Mentor",      description: "Create your mentor profile with skills, expertise, and pricing details." },
-  { icon: PlusCircle,  title: "Add Skills",                description: "List the skills you teach with descriptions and availability." },
-  { icon: CheckSquare, title: "Manage Booking Requests",   description: "Accept or reject session requests based on availability." },
-  { icon: Mic,         title: "Conduct Sessions",          description: "Deliver live mentorship sessions to learners." },
-  { icon: DollarSign,  title: "Earn & Track Income",       description: "Monitor earnings and session history through your dashboard." },
-  { icon: ThumbsUp,    title: "Build Reputation",          description: "Collect ratings and reviews to boost visibility and credibility." },
+  { icon: Briefcase, title: "Register as a Mentor", description: "Create your mentor profile with skills, expertise, and pricing details." },
+  { icon: PlusCircle, title: "Add Skills", description: "List the skills you teach with descriptions and availability." },
+  { icon: CheckSquare, title: "Manage Booking Requests", description: "Accept or reject session requests based on availability." },
+  { icon: Mic, title: "Conduct Sessions", description: "Deliver live mentorship sessions to learners." },
+  { icon: DollarSign, title: "Earn & Track Income", description: "Monitor earnings and session history through your dashboard." },
+  { icon: ThumbsUp, title: "Build Reputation", description: "Collect ratings and reviews to boost visibility and credibility." },
 ];
 
 const matchingSignals = [
-  { icon: Search,        label: "Skill category" },
-  { icon: Star,          label: "Ratings and reviews" },
+  { icon: Search, label: "Skill category" },
+  { icon: Star, label: "Ratings and reviews" },
   { icon: CalendarCheck, label: "Availability" },
-  { icon: BarChart2,     label: "Previous learning history" },
+  { icon: BarChart2, label: "Previous learning history" },
 ];
 
 const securityPoints = [
-  { icon: Lock,        label: "Encrypted authentication system" },
-  { icon: CreditCard,  label: "Secure payment gateway integration" },
+  { icon: Lock, label: "Encrypted authentication system" },
+  { icon: CreditCard, label: "Secure payment gateway integration" },
   { icon: ShieldCheck, label: "Role-based access control" },
-  { icon: UserCheck,   label: "Verified mentor approval" },
-  { icon: Star,        label: "Transparent rating system" },
+  { icon: UserCheck, label: "Verified mentor approval" },
+  { icon: Star, label: "Transparent rating system" },
 ];
 
 const adminPoints = [
-  { icon: UserCheck,   label: "Verifies mentors" },
-  { icon: BarChart2,   label: "Monitors transactions" },
-  { icon: Users,       label: "Manages users" },
+  { icon: UserCheck, label: "Verifies mentors" },
+  { icon: BarChart2, label: "Monitors transactions" },
+  { icon: Users, label: "Manages users" },
   { icon: ShieldCheck, label: "Ensures platform quality" },
 ];
 
 const valueProps = [
-  { icon: Users,      label: "Community-driven learning" },
+  { icon: Users, label: "Community-driven learning" },
   { icon: DollarSign, label: "Affordable mentorship" },
-  { icon: Lock,       label: "Secure booking system" },
-  { icon: Star,       label: "Transparent reviews" },
-  { icon: Zap,        label: "Personalized mentor matching" },
-  { icon: Globe,      label: "Scalable and reliable platform" },
+  { icon: Lock, label: "Secure booking system" },
+  { icon: Star, label: "Transparent reviews" },
+  { icon: Zap, label: "Personalized mentor matching" },
+  { icon: Globe, label: "Scalable and reliable platform" },
 ];
 
 const quickFlow = [
@@ -90,7 +90,7 @@ const HowItWorks = () => {
               </span>
               <h1 className="mt-4 text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
                 Learn or teach with a{" "}
-                <span className="bg-gradient-to-r from-primary to-gold bg-clip-text text-transparent">
+                <span className="text-cyan-400 font-semibold drop-shadow-[0_0_10px_rgba(34,211,238,0.8)]">
                   structured, intelligent
                 </span>{" "}
                 workflow.
@@ -104,16 +104,16 @@ const HowItWorks = () => {
                   <Link to="/register">Get Started Now <ArrowRight className="h-4 w-4" /></Link>
                 </Button>
                 <Button
-              asChild
-              size="lg"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 
+                  asChild
+                  size="lg"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 
                    text-white font-semibold 
                    px-8 py-6 rounded-xl 
                    shadow-lg hover:scale-105 
                    transition-all duration-300"
-            >
-              <Link to="/mentors">Browse Mentors</Link>
-            </Button>
+                >
+                  <Link to="/mentors">Browse Mentors</Link>
+                </Button>
               </div>
             </div>
           </div>
@@ -334,16 +334,16 @@ const HowItWorks = () => {
                   <Link to="/register">Get Started Now <ArrowRight className="h-4 w-4" /></Link>
                 </Button>
                 <Button
-              asChild
-              size="lg"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 
+                  asChild
+                  size="lg"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 
                    text-white font-semibold 
                    px-8 py-6 rounded-xl 
                    shadow-lg hover:scale-105 
                    transition-all duration-300"
-            >
-              <Link to="/mentors">Browse Mentors</Link>
-            </Button>
+                >
+                  <Link to="/mentors">Browse Mentors</Link>
+                </Button>
               </div>
             </div>
           </div>

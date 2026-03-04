@@ -11,14 +11,21 @@ import {
   Bell,
   Menu,
   Shield,
+  Video,
+  CreditCard,
+  BarChart2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/context/AuthContext";
 
 const navItems = [
   { to: "/admin", label: "Overview", icon: LayoutDashboard, end: true },
   { to: "/admin/users", label: "User Management", icon: Users },
   { to: "/admin/teachers", label: "Teacher Approvals", icon: GraduationCap },
+  { to: "/admin/sessions", label: "Session Monitoring", icon: Video },
+  { to: "/admin/payments", label: "Payment Monitoring", icon: CreditCard },
+  { to: "/admin/reports", label: "System Reports", icon: BarChart2 },
   { to: "/admin/skills", label: "Skill Management", icon: BookOpen },
   { to: "/admin/bookings", label: "Booking Management", icon: CalendarCheck },
 ];
@@ -26,6 +33,12 @@ const navItems = [
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const [collapsed, setCollapsed] = useState(false);
   const navigate = useNavigate();
+  const { logout, user } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
 
   return (
     <div className="flex min-h-screen bg-muted/30">
@@ -101,14 +114,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             </Button>
             <div className="flex items-center gap-2 rounded-lg border border-border px-3 py-1.5">
               <div className="h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center text-xs font-bold text-primary">
-                A
+                {user?.name?.charAt(0).toUpperCase() ?? "A"}
               </div>
-              {!collapsed && <span className="text-xs font-medium text-foreground">Admin</span>}
+              <span className="text-xs font-medium text-foreground">{user?.name ?? "Admin"}</span>
             </div>
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => navigate("/")}
+              onClick={handleLogout}
               title="Logout"
             >
               <LogOut className="h-4 w-4 text-muted-foreground" />

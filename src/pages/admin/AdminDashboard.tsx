@@ -1,4 +1,5 @@
 import AdminLayout from "@/components/admin/AdminLayout";
+import { Link } from "react-router-dom";
 import {
   Users,
   GraduationCap,
@@ -11,6 +12,10 @@ import {
   TrendingUp,
   TrendingDown,
   ArrowUpRight,
+  ShieldAlert,
+  ChevronRight,
+  VideoIcon,
+  CreditCard,
 } from "lucide-react";
 
 const summaryCards = [
@@ -105,10 +110,60 @@ export default function AdminDashboard() {
         {/* Header */}
         <div>
           <h2 className="text-2xl font-extrabold text-foreground">Dashboard Overview</h2>
-          <p className="text-sm text-muted-foreground">System-wide summary — February 24, 2026</p>
+          <p className="text-sm text-muted-foreground">System-wide summary — March 3, 2026</p>
         </div>
 
-        {/* Summary Cards */}
+        {/* Multi-level Approval Alert */}
+        <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-950">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-start gap-3">
+              <ShieldAlert className="mt-0.5 h-5 w-5 shrink-0 text-amber-600" />
+              <div>
+                <h3 className="font-bold text-amber-800 dark:text-amber-300">Approval Actions Required</h3>
+                <p className="text-sm text-amber-700 dark:text-amber-400">
+                  <strong>3 teacher applications</strong> are pending your review. Approved teachers can then accept learner booking requests.
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-2 shrink-0">
+              <Link to="/admin/teachers" className="flex items-center gap-1 rounded-lg bg-amber-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-amber-700 transition-colors">
+                Review Teachers <ChevronRight className="h-3.5 w-3.5" />
+              </Link>
+              <Link to="/admin/sessions" className="flex items-center gap-1 rounded-lg border border-amber-300 bg-white px-3 py-1.5 text-xs font-bold text-amber-700 hover:bg-amber-50 transition-colors dark:bg-amber-900 dark:text-amber-300">
+                Monitor Sessions
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Approval Workflow Diagram */}
+        <div className="rounded-xl border border-border bg-card p-5">
+          <h3 className="mb-4 font-bold text-foreground">Multi-Level Approval Workflow</h3>
+          <div className="flex flex-wrap items-center gap-2 text-sm">
+            {[
+              { step: "1", label: "Teacher Registers", color: "bg-blue-100 text-blue-700 border-blue-200" },
+              { step: "→", label: "", color: "" },
+              { step: "2", label: "Admin Reviews & Approves", color: "bg-amber-100 text-amber-700 border-amber-200" },
+              { step: "→", label: "", color: "" },
+              { step: "3", label: "Teacher Creates Sessions", color: "bg-violet-100 text-violet-700 border-violet-200" },
+              { step: "→", label: "", color: "" },
+              { step: "4", label: "Learner Requests to Join", color: "bg-emerald-100 text-emerald-700 border-emerald-200" },
+              { step: "→", label: "", color: "" },
+              { step: "5", label: "Teacher Approves Learner", color: "bg-rose-100 text-rose-700 border-rose-200" },
+            ].map((item, i) => (
+              item.step === "→"
+                ? <span key={i} className="text-muted-foreground font-bold">→</span>
+                : (
+                  <div key={i} className={`flex items-center gap-1.5 rounded-lg border px-3 py-2 font-medium ${item.color}`}>
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/60 text-xs font-bold">{item.step}</span>
+                    {item.label}
+                  </div>
+                )
+            ))}
+          </div>
+        </div>
+
+
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {summaryCards.map((card) => (
             <div
